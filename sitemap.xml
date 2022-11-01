@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://lecoqjacob.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/about/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/archive/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/first-post/</loc>
+        <lastmod>2022-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/tags/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/tags/blog/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/tags/post/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/tags/programming/</loc>
+    </url>
+    <url>
+        <loc>https://lecoqjacob.github.io/tags/technical-writing/</loc>
+    </url>
+</urlset>
