@@ -3,25 +3,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="robots" content="noodp"/>
 
+    {# Fonts #}
+    <link rel="stylesheet" href="{{ get_url(path="font-input.css", trailing_slash=false) | safe }}">
+
+    {# Style Sheets #}
     <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) | safe }}">
 
-{%- if config.extra.accent_color %}
-    <link rel="stylesheet" href="{{ get_url(path="color/" ~ config.extra.accent_color ~ ".css", trailing_slash=false) | safe }}">
-{% else %}
-    <link rel="stylesheet" href="{{ get_url(path="color/blue.css", trailing_slash=false) | safe }}">
-{% endif -%}
-
-{%- if config.extra.background_color %}
-    {%- if config.extra.accent_color and config.extra.background_color != config.extra.accent_color %}
-        <link rel="stylesheet" href="{{ get_url(path="color/background_" ~ config.extra.background_color ~ ".css", trailing_slash=false) | safe }}">
+    {# Accent Colors #}
+    {%- if config.extra.accent_color %}
+        <link rel="stylesheet" href="{{ get_url(path="color/" ~ config.extra.accent_color ~ ".css", trailing_slash=false) | safe }}">
+    {% else %}
+        <link rel="stylesheet" href="{{ get_url(path="color/blue.css", trailing_slash=false) | safe }}">
     {% endif -%}
-{% endif -%}
 
-<link rel="stylesheet" href="{{ get_url(path="font-input.css", trailing_slash=false) | safe }}">
-{# {%- if config.extra.use_full_hack_font %}
-    <link rel="stylesheet" href="{{ get_url(path="font-hack.css", trailing_slash=false) | safe }}">
-{% else %}
-    <link rel="stylesheet" href="{{ get_url(path="font-hack-subset.css", trailing_slash=false) | safe }}">
-{% endif -%} #}
+    {# Background Color #}
+    {%- if config.extra.background_color %}
+        {%- if config.extra.accent_color and config.extra.background_color != config.extra.accent_color %}
+            <link rel="stylesheet" href="{{ get_url(path="color/background_" ~ config.extra.background_color ~ ".css", trailing_slash=false) | safe }}">
+        {% endif -%}
+    {% endif -%}
+
 
 {% endmacro head %}

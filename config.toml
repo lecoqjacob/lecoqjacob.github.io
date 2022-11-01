@@ -4,6 +4,7 @@ title    = "Banana Studio"
 
 # Sass compilation is required
 compile_sass = true
+generate_rss = true
 
 # Optional: enable tags
 taxonomies = [{ name = "tags" }]

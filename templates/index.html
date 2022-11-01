@@ -12,102 +12,99 @@
     {{ head_macros::head(config=config) }}
 
     {%- if config.generate_rss %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") | safe }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml") | safe }}">
     {% endif -%}
 
     {%- if config.extra.favicon %}
-        <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value="image/x-icon") }}" href="{{ config.extra.favicon | safe }}">
+    <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value=" image/x-icon") }}"
+        href="{{ config.extra.favicon | safe }}">
     {% endif -%}
-
-    {% if not is_dev %}
-      <link rel="stylesheet" href="/style.css" />
-    {% endif %}
 
     {%- block extra_head %}
     {% endblock extra_head -%}
 </head>
 
-<body class="">
-<div class="container">
-    {% block header %}
-    <header class="header">
-        <div class="header__inner">
-            <div class="header__logo">
-                {%- if config.logo_home_link %}
+<body>
+    <div class="container">
+        {% block header %}
+        <header class="header">
+            <div class="header__inner">
+                <div class="header__logo">
+                    {%- if config.logo_home_link %}
                     {% set logo_link = config.logo_home_link %}
-                {% else %}
+                    {% else %}
                     {% set logo_link = config.base_url %}
-                {% endif -%}
-                <a href="{{ logo_link | safe }}" style="text-decoration: none;">
-                    <div class="logo">
-                      {% block logo_content %}
-                        {%- if config.extra.logo_text %}
+                    {% endif -%}
+                    <a href="{{ logo_link | safe }}" style="text-decoration: none;">
+                        <div class="logo">
+                            {% block logo_content %}
+                            {%- if config.extra.logo_text %}
                             {{ config.extra.logo_text }}
-                        {% else %}
+                            {% else %}
                             Terminimal theme
-                        {% endif -%}
-                        {% endblock logo_content %}
-                    </div>
-                </a>
+                            {% endif -%}
+                            {% endblock logo_content %}
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        {% block header_menu %}
-        {{ menu_macros::menu(config=config, current_path=current_path) }}
-        {% endblock header_menu %}
-    </header>
-    {% endblock header %}
+            {% block header_menu %}
+            {{ menu_macros::menu(config=config, current_path=current_path) }}
+            {% endblock header_menu %}
+        </header>
+        {% endblock header %}
 
-    <div class="content">
-        {% block content %}
-        <div class="posts">
-            {%- if paginator %}
+        <div class="content">
+            {% block content %}
+            <div class="posts">
+                {%- if paginator %}
                 {%- set show_pages = paginator.pages -%}
-            {% else %}
+                {% else %}
                 {%- set show_pages = section.pages -%}
-            {% endif -%}
+                {% endif -%}
 
-            {%- for page in show_pages %}
+                {%- for page in show_pages %}
                 <div class="post on-list">
                     {{ post_macros::header(page=page) }}
                     {{ post_macros::content(page=page, summary=true) }}
                 </div>
-            {% endfor -%}
-            <div class="pagination">
-                <div class="pagination__buttons">
-                {%- if paginator.previous %}
-                    <span class="button previous">
-                        <a href="{{ paginator.previous | safe }}">
-                            <span class="button__icon">←</span>&nbsp;
-                            <span class="button__text">Newer posts</span>
-                        </a>
-                    </span>
-                {% endif -%}
-                {%- if paginator.next %}
-                    <span class="button next">
-                        <a href="{{ paginator.next | safe }}">
-                            <span class="button__text">Older posts</span>&nbsp;
-                            <span class="button__icon">→</span>
-                        </a>
-                    </span>
-                {% endif -%}
+                {% endfor -%}
+                <div class="pagination">
+                    <div class="pagination__buttons">
+                        {%- if paginator.previous %}
+                        <span class="button previous">
+                            <a href="{{ paginator.previous | safe }}">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Newer posts</span>
+                            </a>
+                        </span>
+                        {% endif -%}
+                        {%- if paginator.next %}
+                        <span class="button next">
+                            <a href="{{ paginator.next | safe }}">
+                                <span class="button__text">Older posts</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                        {% endif -%}
+                    </div>
                 </div>
             </div>
+            {% endblock content %}
         </div>
-        {% endblock content %}
-    </div>
 
-    {% block footer %}
-    <footer class="footer">
-        <div class="footer__inner">
-            {%- if config.extra.copyright_html %}
+        {% block footer %}
+        <footer class="footer">
+            <div class="footer__inner">
+                {%- if config.extra.copyright_html %}
                 <div class="copyright copyright--user">{{ config.extra.copyright_html | safe }}</div>
-            {% else %}
+                {% else %}
                 <div class="copyright">
                     {%- if config.extra.author %}
-                        <span>© {{ date_macros::now_year() }} {{ config.extra.author }}</span>
+                    <span>© {{ date_macros::now_year() }} {{ config.extra.author }}</span>
                     {% else %}
-                        <span>© {{ date_macros::now_year() }} Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span>© {{ date_macros::now_year() }} Powered by <a href="https://www.getzola.org/">Zola</a></span>
                     {% endif -%}
 
                     <span class="copyright-theme">
@@ -115,12 +112,17 @@
                         Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
                     </span>
                 </div>
-            {% endif -%}
-        </div>
-    </footer>
-    {% endblock footer %}
+                {% endif -%}
+            </div>
+        </footer>
+        {% endblock footer %}
+    </div>
 
-</div>
+    {% if not is_dev %}
+    <script type="module" src="/script.js"></script>
+    {% else %} {# get the script from vite server #}
+    <script type="module" src="http://localhost:8001/src/index.ts"></script>
+    {% endif %}
 </body>
 
 </html>

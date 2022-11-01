@@ -1,8 +1,13 @@
 {% if src %}
-  <figure class="{% if position %}{{ position }}{% else -%} center {%- endif %}" >
+  <figure class="my-6 table max-w-full {% if position %}{{ position }}{% else -%} center {%- endif %}" >
+    
     <img src="{{ src | safe }}"{% if alt %} alt="{{ alt }}"{% endif %}{% if style %} style="{{ style }}"{% endif %} />
+    
     {% if caption %}
-      <figcaption class="{% if caption_position %}{{ caption_position }}{% else -%} center {%- endif %}"{% if caption_style %} style="{{ caption_style | safe }}"{% endif %}>{{ caption }}</figcaption>
+      <figcaption class="mt-1 block bg-[var(--accent)] py-1 px-2.5 text-sm text-[14px] text-[var(--background)] {% if caption_position %}{{ caption_position }}{% else -%} center {%- endif %}"{% if caption_style %} style="{{ caption_style | safe }}"{% endif %}>
+        {{ caption }}
+      </figcaption>
     {% endif %}
+    
   </figure>
 {% endif %}
