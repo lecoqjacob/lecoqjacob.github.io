@@ -2,6 +2,7 @@
 {% import "macros/head.html" as head_macros -%}
 {% import "macros/menu.html" as menu_macros -%}
 {% import "macros/post.html" as post_macros -%}
+{% set is_dev = get_env(name='DEV', default=true) != "false" %}
 
 <!DOCTYPE html>
 <html lang="{%- if config.default_language -%}{{ config.default_language }}{%- else -%}en{%- endif -%}">
@@ -17,6 +18,10 @@
     {%- if config.extra.favicon %}
         <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value="image/x-icon") }}" href="{{ config.extra.favicon | safe }}">
     {% endif -%}
+
+    {% if not is_dev %}
+      <link rel="stylesheet" href="/style.css" />
+    {% endif %}
 
     {%- block extra_head %}
     {% endblock extra_head -%}

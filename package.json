@@ -1,16 +1,21 @@
 {
+  "private": true,
+  "type": "module",
   "scripts": {
-    "uglify": "uglifyjs ./src/js/main.js --compress --mangle -o ./static/js/main.js && uglifyjs ./src/js/page.js --compress --mangle -o ./static/js/page.js && uglifyjs ./src/js/search.js --compress --mangle -o ./static/js/search.js && uglifyjs ./src/js/lang.js --compress --mangle -o ./static/js/lang.js",
-    "watch": "NODE_ENV=development postcss ./src/css/main.css -o ./static/css/main.css -w --verbose",
-    "dev": "NODE_ENV=development postcss ./src/css/main.css -o ./static/css/main.css --verbose",
-    "prod": "npm run uglify && NODE_ENV=production postcss ./src/css/main.css -o ./static/css/main.css --verbose"
+    "zola:serve": "zola serve --port 8000",
+    "vite:serve": "vite",
+    "zola:build": "zola build",
+    "vite:build": "vite build",
+    "start": "npm-run-all --parallel vite:serve zola:serve",
+    "build": "tsc && cross-env DEV=false npm-run-all zola:build vite:build"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.18",
-    "postcss-cli": "^10.0.0",
-    "tailwindcss": "^3.2.1",
-    "uglify-js": "^3.17.4",
-    "vite": "^3.2.2"
+    "autoprefixer": "^10.4.12",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
   }
 }
