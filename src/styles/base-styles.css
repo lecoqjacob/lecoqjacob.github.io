@@ -36,4 +36,8 @@
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
   }
+
+  code {
+    @apply my-0 mx-0.5 bg-[var(--accent-alpha-20)] py-px px-1.5 font-sans text-[0.95rem];
+  }
 }
