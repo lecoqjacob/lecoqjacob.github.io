@@ -1,0 +1,39 @@
+@layer base {
+  html {
+    @apply box-border;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  p {
+    @apply mb-5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply flex items-center font-bold leading-snug;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  body {
+    @apply m-0 bg-[var(--background)] p-0 font-sans text-base text-[var(--color)] max-sm:text-base;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+  }
+}

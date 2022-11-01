@@ -1,0 +1,13 @@
+@layer utilities {
+  .left{
+    @apply mr-auto
+  }
+
+  .center{
+    @apply mx-auto
+  }
+
+  .right{
+    @apply ml-auto
+  }
+}
